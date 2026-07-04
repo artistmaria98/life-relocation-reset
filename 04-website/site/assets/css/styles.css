@@ -1,0 +1,1145 @@
+:root {
+  --ink: #17211f;
+  --deep-green: #1f463d;
+  --teal: #2f7770;
+  --plum: #5a314f;
+  --clay: #b95d3d;
+  --gold: #c79a4b;
+  --paper: #f6f0e7;
+  --map-paper: #f8f3eb;
+  --mist: #e6eeeb;
+  --white: #fffdf9;
+  --muted: #65706d;
+  --border: rgba(23, 33, 31, 0.16);
+  --shadow: 0 18px 50px rgba(23, 33, 31, 0.14);
+  --soft-shadow: 0 24px 70px rgba(31, 70, 61, 0.12);
+  --radius: 8px;
+  --max: 1160px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(rgba(246, 240, 231, 0.42), rgba(246, 240, 231, 0.58)),
+    url("../images/world-map-canva-blue.png") top center / min(960px, 150vw) auto repeat-y,
+    var(--paper);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+body.quiz-open {
+  background:
+    linear-gradient(rgba(246, 240, 231, 0.42), rgba(246, 240, 231, 0.58)),
+    url("../images/world-map-canva-blue.png") top center / min(960px, 150vw) auto repeat-y,
+    var(--paper);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: minmax(190px, 1fr) auto minmax(150px, 1fr);
+  align-items: center;
+  gap: 22px;
+  padding: 16px clamp(18px, 3vw, 42px);
+  color: var(--white);
+  background: rgba(18, 27, 25, 0.83);
+  backdrop-filter: blur(14px);
+}
+
+section[id] {
+  scroll-margin-top: 82px;
+}
+
+#quiz-start {
+  scroll-margin-top: 92px;
+}
+
+.brand-mark {
+  display: inline-flex;
+  flex-direction: column;
+  width: max-content;
+}
+
+.brand-mark__title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.brand-mark__sub {
+  color: rgba(255, 253, 249, 0.72);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  color: rgba(255, 253, 249, 0.82);
+  font-size: 0.92rem;
+}
+
+.main-nav a:hover,
+.site-footer a:hover {
+  color: var(--gold);
+}
+
+.icon-button,
+.primary-button,
+.secondary-button,
+.text-button {
+  min-height: 44px;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.icon-button {
+  justify-self: end;
+  padding: 0 15px;
+  color: var(--ink);
+  background: var(--white);
+}
+
+.primary-button {
+  padding: 0 20px;
+  color: var(--ink);
+  background: var(--gold);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
+}
+
+.primary-button:hover,
+.icon-button:hover {
+  transform: translateY(-1px);
+}
+
+.primary-button--dark {
+  color: var(--white);
+  background: var(--deep-green);
+  box-shadow: none;
+}
+
+.primary-button--full {
+  width: 100%;
+  color: var(--white);
+  background: var(--deep-green);
+  box-shadow: none;
+}
+
+.secondary-button {
+  min-width: 148px;
+  padding: 0 18px;
+  color: var(--white);
+  background: rgba(255, 253, 249, 0.14);
+  border: 1px solid rgba(255, 253, 249, 0.35);
+}
+
+.secondary-button--plain {
+  color: var(--deep-green);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.hero .secondary-button {
+  color: var(--deep-green);
+  background: rgba(255, 253, 249, 0.42);
+  border-color: rgba(31, 70, 61, 0.28);
+}
+
+.text-button {
+  min-width: 96px;
+  color: var(--muted);
+  background: transparent;
+}
+
+.hero {
+  position: relative;
+  min-height: 84vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--ink);
+  background:
+    linear-gradient(90deg, rgba(248, 243, 235, 0.38) 0%, rgba(248, 243, 235, 0.24) 48%, rgba(248, 243, 235, 0.5) 100%),
+    url("../images/world-map-canva-blue.png") center / min(1320px, 128vw) auto no-repeat,
+    #f6f0e7;
+  background-blend-mode: normal, normal, normal;
+}
+
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 22% 48%, rgba(255, 253, 249, 0.44), transparent 38%),
+    radial-gradient(circle at 78% 38%, rgba(47, 119, 112, 0.08), transparent 34%);
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.62fr);
+  gap: clamp(34px, 6vw, 76px);
+  align-items: center;
+  width: min(var(--max), calc(100% - 72px));
+  margin: 0 auto;
+  padding-top: 82px;
+}
+
+.hero__content {
+  position: relative;
+  width: 100%;
+}
+
+.hero__portrait {
+  position: relative;
+  justify-self: end;
+  width: min(410px, 100%);
+  margin: 0;
+}
+
+.hero__portrait::before {
+  content: "";
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border: 1px solid rgba(31, 70, 61, 0.22);
+  border-radius: var(--radius);
+}
+
+.hero__portrait img {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5.15;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid rgba(31, 70, 61, 0.22);
+  border-radius: var(--radius);
+  box-shadow: 0 30px 90px rgba(31, 70, 61, 0.23);
+}
+
+.eyebrow,
+.section-kicker {
+  margin: 0 0 16px;
+  color: var(--gold);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  line-height: 1.02;
+}
+
+h1 {
+  max-width: 21ch;
+  margin-bottom: 22px;
+  font-size: clamp(2.55rem, 3.6vw, 3.65rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.hero__lead {
+  max-width: 590px;
+  color: #33403c;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 38px;
+}
+
+.hero__proof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: min(650px, 100%);
+  margin: 0;
+}
+
+.hero__proof div {
+  min-height: 88px;
+  padding: 15px;
+  border: 1px solid rgba(31, 70, 61, 0.17);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 249, 0.52);
+  backdrop-filter: blur(12px);
+}
+
+.hero__proof dt {
+  color: var(--deep-green);
+  font-weight: 800;
+}
+
+.hero__proof dd {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.section-inner {
+  width: min(var(--max), calc(100% - 36px));
+  margin: 0 auto;
+}
+
+.section-block {
+  padding: clamp(36px, 5vw, 64px) 0;
+}
+
+.intro-band {
+  padding: 2px 0;
+  background:
+    linear-gradient(rgba(31, 70, 61, 0.9), rgba(31, 70, 61, 0.9)),
+    url("../images/world-map-canva-blue.png") center / cover;
+  color: var(--white);
+}
+
+.intro-band__content {
+  display: flex;
+  align-items: center;
+  min-height: 34px;
+}
+
+.intro-band h2 {
+  margin-bottom: 0;
+  max-width: none;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(0.88rem, 1.08vw, 1rem);
+  font-weight: 700;
+  line-height: 1.22;
+}
+
+.two-column,
+.session-layout,
+.quiz-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(36px, 7vw, 88px);
+  align-items: start;
+}
+
+.about {
+  background:
+    linear-gradient(rgba(248, 243, 235, 0.34), rgba(248, 243, 235, 0.5)),
+    url("../images/world-map-canva-blue.png") center top / min(1180px, 146vw) auto no-repeat,
+    var(--map-paper);
+  background-blend-mode: normal, normal, normal;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(34px, 6vw, 80px);
+  align-items: center;
+}
+
+.about-media {
+  width: min(430px, 100%);
+}
+
+.about-video {
+  margin: 0;
+}
+
+.about-video video {
+  display: block;
+  width: 100%;
+  max-height: 640px;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid rgba(23, 33, 31, 0.28);
+  border-radius: var(--radius);
+  background: #101816;
+  box-shadow: var(--shadow);
+}
+
+.about__body {
+  color: #2f3936;
+  font-size: 1.05rem;
+}
+
+.about__body .section-kicker {
+  margin-bottom: 8px;
+}
+
+.about__body .signal-list {
+  margin-top: 0;
+}
+
+.signal-list,
+.session-list {
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.signal-list li,
+.session-list li {
+  position: relative;
+  padding: 14px 0 14px 28px;
+  border-top: 1px solid var(--border);
+}
+
+.signal-list li::before,
+.session-list li::before {
+  content: "";
+  position: absolute;
+  top: 23px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--clay);
+}
+
+.pathways {
+  background:
+    linear-gradient(rgba(230, 238, 235, 0.38), rgba(230, 238, 235, 0.56)),
+    url("../images/world-map-canva-blue.png") center / min(1180px, 150vw) auto no-repeat,
+    var(--mist);
+  background-blend-mode: normal, normal, normal;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.pathway-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.path-card {
+  min-height: 220px;
+  padding: 22px;
+  border: 1px solid rgba(23, 33, 31, 0.1);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 249, 0.78);
+  box-shadow: var(--soft-shadow);
+  backdrop-filter: blur(10px);
+}
+
+.path-card__tag {
+  display: inline-flex;
+  margin-bottom: 44px;
+  color: var(--clay);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.path-card p {
+  color: var(--muted);
+}
+
+.quiz-section {
+  background:
+    linear-gradient(135deg, rgba(246, 239, 229, 0.28), rgba(232, 240, 239, 0.36) 52%, rgba(242, 238, 231, 0.48)),
+    url("../images/world-map-canva-blue.png") center top / min(1200px, 152vw) auto no-repeat,
+    #f4eee5;
+  background-blend-mode: normal, normal, normal;
+}
+
+.quiz-copy {
+  position: sticky;
+  top: 110px;
+}
+
+.quiz-copy p {
+  color: #3d4845;
+}
+
+.fit-list {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid rgba(31, 70, 61, 0.16);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 249, 0.64);
+  backdrop-filter: blur(10px);
+}
+
+.fit-list p {
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.fit-list ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fit-list li {
+  position: relative;
+  padding-left: 28px;
+  color: #34413d;
+}
+
+.fit-list li::before {
+  content: "✓";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--teal);
+  font-weight: 900;
+}
+
+.privacy-note {
+  margin-top: 24px;
+  padding: 18px;
+  color: #4c5552;
+  border-left: 4px solid var(--teal);
+  background: rgba(255, 253, 249, 0.58);
+}
+
+.quiz-panel,
+.session-panel {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 249, 0.88);
+  box-shadow: var(--soft-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.quiz-panel {
+  min-height: 560px;
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.quiz-panel--result {
+  min-height: auto;
+}
+
+.quiz-panel--result .quiz-progress,
+.quiz-panel--result .quiz-actions {
+  display: none;
+}
+
+.quiz-progress {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 30px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.progress-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e4dfd6;
+}
+
+.progress-track span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--teal);
+  transition: width 180ms ease;
+}
+
+.question-title {
+  margin-bottom: 24px;
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
+  line-height: 1.12;
+}
+
+.option-list {
+  display: grid;
+  gap: 10px;
+}
+
+.option-card {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 12px;
+  align-items: center;
+  min-height: 58px;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: #fffaf3;
+}
+
+.option-card:hover,
+.option-card:has(input:checked) {
+  border-color: var(--teal);
+  background: #eef7f5;
+}
+
+.option-card input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--teal);
+}
+
+.text-field {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 15px;
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fffaf3;
+}
+
+.text-field:focus {
+  outline: 3px solid rgba(47, 119, 112, 0.18);
+  border-color: var(--teal);
+}
+
+.field-help {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.quiz-error {
+  min-height: 24px;
+  margin: 16px 0 0;
+  color: #9f352d;
+  font-weight: 700;
+}
+
+.quiz-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.result-intro {
+  margin-bottom: 22px;
+}
+
+.result-inline-title {
+  margin-bottom: 10px;
+}
+
+.result-inline-summary {
+  color: #3d4845;
+  font-size: 1.02rem;
+}
+
+.result-card-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.result-card {
+  padding: 18px;
+  border: 1px solid rgba(23, 33, 31, 0.11);
+  border-radius: var(--radius);
+  background: #fffaf3;
+}
+
+.result-card h3 {
+  margin-bottom: 8px;
+  color: var(--deep-green);
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.result-card p {
+  margin: 0;
+}
+
+.session-section {
+  background:
+    linear-gradient(rgba(246, 240, 231, 0.32), rgba(246, 240, 231, 0.5)),
+    url("../images/world-map-canva-blue.png") center top / min(1180px, 150vw) auto no-repeat,
+    var(--paper);
+  background-blend-mode: normal, normal, normal;
+}
+
+.session-panel {
+  padding: clamp(22px, 4vw, 34px);
+}
+
+.price-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.price-row span {
+  color: var(--muted);
+}
+
+.price-row strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.2rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.microcopy {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.faq {
+  background:
+    linear-gradient(rgba(255, 253, 249, 0.34), rgba(255, 253, 249, 0.56)),
+    url("../images/world-map-canva-blue.png") center top / min(1180px, 150vw) auto no-repeat,
+    var(--white);
+  background-blend-mode: normal, normal, normal;
+}
+
+.faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+details {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fbf7f0;
+}
+
+summary {
+  min-height: 62px;
+  padding: 18px 20px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+details p {
+  margin: 0;
+  padding: 0 20px 20px;
+  color: var(--muted);
+}
+
+.legal-band {
+  padding: 44px 0;
+  color: var(--white);
+  background: var(--plum);
+}
+
+.legal-band__content {
+  display: grid;
+  grid-template-columns: 0.6fr 1.4fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.legal-band h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+}
+
+.legal-band p {
+  margin: 0;
+  color: rgba(255, 253, 249, 0.78);
+}
+
+.site-footer {
+  padding: 26px 0;
+  color: rgba(255, 253, 249, 0.78);
+  background: #101816;
+}
+
+.footer-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-grid strong {
+  color: var(--white);
+}
+
+.footer-grid p {
+  margin: 2px 0 0;
+}
+
+.consent-banner {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  width: min(760px, calc(100% - 36px));
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+
+.consent-banner[hidden] {
+  display: none;
+}
+
+.consent-banner strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.consent-banner p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.consent-actions {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 940px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .about-layout,
+  .two-column,
+  .session-layout,
+  .quiz-layout,
+  .consent-banner,
+  .legal-band__content {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-copy {
+    position: static;
+  }
+
+  .pathway-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background:
+      linear-gradient(rgba(246, 240, 231, 0.34), rgba(246, 240, 231, 0.54)),
+      url("../images/world-map-canva-blue.png") top center / 135% auto repeat-y,
+      var(--paper);
+  }
+
+  body.quiz-open {
+    background:
+      linear-gradient(rgba(246, 240, 231, 0.34), rgba(246, 240, 231, 0.54)),
+      url("../images/world-map-canva-blue.png") top center / 135% auto repeat-y,
+      var(--paper);
+  }
+
+  .site-header {
+    padding: 12px 14px;
+  }
+
+  .brand-mark__sub {
+    display: none;
+  }
+
+  .icon-button {
+    min-width: 44px;
+    width: 44px;
+    padding: 0;
+  }
+
+  .icon-button span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .hero {
+    background:
+      linear-gradient(rgba(248, 243, 235, 0.18), rgba(248, 243, 235, 0.5)),
+      url("../images/world-map-canva-blue.png") center top / 165% auto no-repeat,
+      var(--map-paper);
+    min-height: auto;
+    align-items: center;
+    padding: 78px 0 34px;
+    color: var(--ink);
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    width: calc(100% - 28px);
+    padding-top: 0;
+  }
+
+  .hero__shade {
+    background:
+      radial-gradient(circle at 70% 12%, rgba(255, 253, 249, 0.34), transparent 38%),
+      radial-gradient(circle at 15% 44%, rgba(47, 119, 112, 0.08), transparent 34%);
+  }
+
+  .hero h1,
+  .hero__lead {
+    text-shadow: none;
+  }
+
+  .hero__content {
+    width: 100%;
+    margin: 0;
+    padding-top: 0;
+  }
+
+  .hero__portrait {
+    order: -1;
+    justify-self: start;
+    width: min(220px, 58vw);
+  }
+
+  .hero__portrait::before {
+    inset: 10px -10px -10px 10px;
+  }
+
+  .hero__portrait img {
+    aspect-ratio: 4 / 5;
+    box-shadow: 0 18px 48px rgba(31, 70, 61, 0.18);
+  }
+
+  h1 {
+    max-width: 100%;
+    font-size: clamp(2.25rem, 9.6vw, 3rem);
+    overflow-wrap: anywhere;
+  }
+
+  h2 {
+    font-size: clamp(2.05rem, 10vw, 3.1rem);
+  }
+
+  .hero__lead {
+    color: #33403c;
+    font-size: 1rem;
+  }
+
+  .section-block {
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    padding: 34px 0 28px;
+  }
+
+  .quiz-section {
+    padding-bottom: 18px;
+  }
+
+  .session-section {
+    padding-top: 24px;
+  }
+
+  .intro-band {
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    padding: 2px 0;
+  }
+
+  .intro-band__content {
+    min-height: 32px;
+  }
+
+  .intro-band h2 {
+    font-size: clamp(0.82rem, 3.8vw, 1rem);
+  }
+
+  .intro-band,
+  .about,
+  .pathways,
+  .quiz-section,
+  .session-section,
+  .faq {
+    background-size: 150% auto;
+    background-position: center top;
+  }
+
+  .about-video {
+    margin-top: 0;
+  }
+
+  .about-video video {
+    max-height: 520px;
+    box-shadow: 0 18px 45px rgba(31, 70, 61, 0.16);
+  }
+
+  .fit-list {
+    margin-top: 16px;
+    padding: 16px;
+  }
+
+  .fit-list ul {
+    gap: 8px;
+  }
+
+  .signal-list,
+  .session-list {
+    margin-top: 18px;
+  }
+
+  .about__body .signal-list {
+    margin-top: 0;
+  }
+
+  .signal-list li,
+  .session-list li {
+    padding: 12px 0 12px 24px;
+  }
+
+  .path-card {
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .path-card__tag {
+    margin-bottom: 24px;
+  }
+
+  .quiz-panel,
+  .session-panel,
+  .result-detail {
+    padding: 18px;
+  }
+
+  .quiz-panel {
+    min-height: auto;
+  }
+
+  .question-title {
+    font-size: 1.55rem;
+  }
+
+  .option-card {
+    min-height: 54px;
+    padding: 13px;
+  }
+
+  .result-card {
+    padding: 16px;
+  }
+
+  .price-row strong {
+    font-size: 2.7rem;
+  }
+
+  .faq-list {
+    gap: 8px;
+  }
+
+  summary {
+    min-height: 56px;
+    padding: 16px;
+  }
+
+  details p {
+    padding: 0 16px 16px;
+  }
+
+  .hero__proof,
+  .pathway-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__proof {
+    display: none;
+  }
+
+  .hero__actions,
+  .quiz-actions,
+  .consent-actions,
+  .footer-grid {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .primary-button,
+  .secondary-button,
+  .text-button {
+    width: 100%;
+  }
+
+  .section-inner {
+    width: min(100% - 28px, var(--max));
+  }
+}

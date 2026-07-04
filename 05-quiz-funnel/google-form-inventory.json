@@ -1,0 +1,194 @@
+{
+  "source": {
+    "name": "WHAT INTERNATIONAL PATH FITS YOU BEST?",
+    "shortUrl": "https://forms.gle/v2NzyHtHYeRxAANg7",
+    "resolvedUrl": "https://docs.google.com/forms/d/e/1FAIpQLScK3mVbpSdc8EyDmhea9q8pb9nv_UK5KCGe8SFa1LeHH5YDkg/viewform?usp=send_form",
+    "reviewedAt": "2026-07-04",
+    "submittedDuringInventory": false
+  },
+  "description": "Let's begin!",
+  "questions": [
+    {
+      "id": "region_interest",
+      "sourceId": 264392383,
+      "label": "If you could choose any country to live in, which region would interest you the most?",
+      "type": "single_choice",
+      "required": true,
+      "options": [
+        "Europe",
+        "Asia",
+        "Middle East",
+        "North or South America",
+        "I'm not sure yet / Open to different options"
+      ]
+    },
+    {
+      "id": "environment",
+      "sourceId": 1106738736,
+      "label": "What kind of environment feels most like you?",
+      "type": "single_choice",
+      "required": true,
+      "options": [
+        "The energy of a big city",
+        "Life by the ocean",
+        "A peaceful and charming town",
+        "An international community"
+      ]
+    },
+    {
+      "id": "fearless_action",
+      "sourceId": 168846058,
+      "label": "If all your fears disappeared tomorrow, what would you do?",
+      "type": "single_choice",
+      "required": true,
+      "options": [
+        "Move to another country",
+        "Start my own business",
+        "Change careers",
+        "Travel and work remotely"
+      ]
+    },
+    {
+      "id": "main_obstacle",
+      "sourceId": 1282382500,
+      "label": "What's holding you back the most?",
+      "type": "single_choice",
+      "required": true,
+      "options": [
+        "Money",
+        "Language",
+        "I don't know where to start",
+        "I'm afraid of making the wrong decision"
+      ]
+    },
+    {
+      "id": "desired_change",
+      "sourceId": 676568096,
+      "label": "What would you like to change in your life right now?",
+      "type": "single_choice",
+      "required": true,
+      "options": [
+        "I want more opportunities to grow",
+        "I want to feel more connected to where I live",
+        "I want to increase my income",
+        "I'm ready for a fresh start"
+      ]
+    },
+    {
+      "id": "clarity_need",
+      "sourceId": 1918655691,
+      "label": "If you could get clarity on one thing right now, what would it be?",
+      "type": "single_choice",
+      "required": true,
+      "options": [
+        "Which country would fit me best",
+        "Where to find the right job, clients, apartments or connections",
+        "How to increase my income and opportunities",
+        "What my next step should be"
+      ]
+    },
+    {
+      "id": "three_year_vision",
+      "sourceId": 392916581,
+      "label": "Imagine it's 3 years from now and your life has changed for the better. What happened?",
+      "type": "single_choice",
+      "required": true,
+      "options": [
+        {
+          "label": "I finally stopped postponing the life I wanted",
+          "routesTo": "reinventor"
+        },
+        {
+          "label": "I created more freedom and flexibility in my life",
+          "routesTo": "freedom_seeker"
+        },
+        {
+          "label": "I built a career with more opportunities and income",
+          "routesTo": "builder"
+        },
+        {
+          "label": "I moved to a country that feels right for me",
+          "routesTo": "explorer"
+        }
+      ]
+    },
+    {
+      "id": "instagram",
+      "sourceId": 757496022,
+      "label": "Your instagram account",
+      "type": "short_text",
+      "required": true
+    },
+    {
+      "id": "current_job",
+      "sourceId": 2001678050,
+      "label": "What's your current job? (Optional)",
+      "type": "short_text",
+      "required": false
+    }
+  ],
+  "results": [
+    {
+      "id": "freedom_seeker",
+      "sourceId": 816225500,
+      "title": "The Freedom Seeker",
+      "summary": "The user is looking for freedom, flexibility, independence, and the ability to design life on their own terms.",
+      "currentOffer": {
+        "name": "LIFE RELOCATION RESET",
+        "format": "40-Minute Strategic Session | Zoom | 1:1",
+        "launchPrice": "€59",
+        "regions": "Middle East • Asia • USA • Europe",
+        "bookingInstruction": "Booking link is available in my Instagram bio.",
+        "instagram": "@masha.actress"
+      }
+    },
+    {
+      "id": "reinventor",
+      "sourceId": 1586928965,
+      "title": "The Reinventor",
+      "summary": "The user is ready for change but may be held back by uncertainty, fear, or overthinking.",
+      "currentOffer": {
+        "name": "LIFE RELOCATION RESET",
+        "format": "40-Minute Strategic Session | Zoom | 1:1",
+        "launchPrice": "€59",
+        "regions": "Middle East • Asia • USA • Europe",
+        "bookingInstruction": "Booking link is available in my Instagram bio.",
+        "instagram": "@masha.actress"
+      }
+    },
+    {
+      "id": "explorer",
+      "sourceId": 446168877,
+      "title": "The Explorer",
+      "summary": "The user is looking for a place where they can build their next chapter and thrive personally, professionally, and financially.",
+      "currentOffer": {
+        "name": "LIFE RELOCATION RESET",
+        "format": "40-Minute Strategic Session | Zoom | 1:1",
+        "launchPrice": "€59",
+        "regions": "Middle East • Asia • USA • Europe",
+        "bookingInstruction": "Booking link is available in my Instagram bio.",
+        "instagram": "@masha.actress"
+      }
+    },
+    {
+      "id": "builder",
+      "sourceId": 1181587559,
+      "title": "The Builder",
+      "summary": "The user wants growth, opportunity, more income, career potential, and an environment that matches their ambition.",
+      "currentOffer": {
+        "name": "LIFE RELOCATION RESET",
+        "format": "40-Minute Strategic Session | Zoom | 1:1",
+        "launchPrice": "€59",
+        "regions": "Middle East • Asia • USA • Europe",
+        "bookingInstruction": "Booking link is available in my Instagram bio.",
+        "instagram": "@masha.actress"
+      }
+    }
+  ],
+  "migrationNotes": [
+    "The current Google Form routes result type from the final vision question only.",
+    "A native quiz should support multi-question scoring rather than relying on one branching question.",
+    "Lead capture should be privacy-conscious and explain how quiz/contact data will be used.",
+    "Booking should eventually route to a controlled booking/payment flow instead of Instagram bio only."
+  ]
+}

@@ -1,0 +1,6 @@
+.DS_Store
+*.log
+
+# Keep deploys lightweight. The website uses the compressed MP4.
+04-website/site/assets/video/*.mov
+
