@@ -109,10 +109,10 @@ function renderQuestion() {
   const total = quizQuestions.length;
   const progress = ((state.step + 1) / total) * 100;
   document.querySelector("#quiz-start")?.classList.remove("quiz-panel--result");
-  stepLabel.textContent = `Question ${state.step + 1} of ${total}`;
+  stepLabel.textContent = `Вопрос ${state.step + 1} из ${total}`;
   progressBar.style.width = `${progress}%`;
   prevButton.style.visibility = state.step === 0 ? "hidden" : "visible";
-  nextButton.querySelector("span").textContent = state.step === total - 1 ? "Show my result" : "Next";
+  nextButton.querySelector("span").textContent = state.step === total - 1 ? "Показать результат" : "Далее";
 
   const saved = state.answers[question.id] || "";
   const field = question.type === "text" ? renderTextQuestion(question, saved) : renderChoiceQuestion(question, saved);
@@ -183,7 +183,7 @@ function validateCurrentAnswer() {
   const error = document.querySelector("#quizError");
 
   if (!question.optional && !value) {
-    error.textContent = question.type === "text" ? "Fill in this field to continue." : "Choose one option to continue.";
+    error.textContent = question.type === "text" ? "Заполни это поле, чтобы продолжить." : "Выбери один вариант, чтобы продолжить.";
     return false;
   }
 
@@ -217,11 +217,11 @@ function calculateResult() {
 
 function renderResultDetail(result) {
   const sections = [
-    ["Your strength", result.strength],
-    ["Countries that may fit", result.countries],
-    ["Opportunities to look for", result.opportunities],
-    ["Common mistakes", result.mistakes],
-    ["Your next step", result.nextStep]
+    ["Твоя сила", result.strength],
+    ["Какие страны могут подойти", result.countries],
+    ["Какие возможности искать", result.opportunities],
+    ["Частые ошибки", result.mistakes],
+    ["Следующий шаг", result.nextStep]
   ];
 
   const cards = sections
@@ -244,7 +244,7 @@ function showResult() {
   const result = resultContent[resultId];
   document.querySelector("#quiz-start")?.classList.add("quiz-panel--result");
   stage.innerHTML = `
-    <p class="section-kicker">your result</p>
+    <p class="section-kicker">твой результат</p>
     <h3 class="question-title result-inline-title">${result.title}</h3>
     <p class="result-inline-summary">${result.summary}</p>
     ${renderResultDetail(result)}
